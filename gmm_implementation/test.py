@@ -53,9 +53,9 @@ take = int(input().strip())
 if (take == 1):
     print("Escriba el nombre del archivo de test:")
     path = input().strip()
-    print("ruta: "+source+" nombre:"+path)
-	#print(path)
-    sr.audio = read(source + path)
+    #print("ruta: "+source+" nombre:"+path)
+	#print("full_path: ",path)
+    sr, audio = read(source + path)
     vector   = extract_features(audio,sr)
 
     log_likelihood = np.zeros(len(models))

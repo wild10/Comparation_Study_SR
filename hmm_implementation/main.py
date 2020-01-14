@@ -90,9 +90,10 @@ def train_GMMHMM(dataset):
         model = hmm.GMMHMM(n_components=states_num, n_mix=GMM_mix_num, \
                            transmat_prior=transmatPrior, startprob_prior=startprobPrior, \
                            covariance_type='diag', n_iter=10)
-        trainData = dataset[label]
-        length = np.zeros([len(trainData), ], dtype=np.int)
-        for m in range(len(trainData)):
+        trainData = dataset[label] # obtiene el featues matriz por cada audio
+        #print("trainData: ",trainData)
+        length = np.zeros([len(trainData), ], dtype=np.int) # crea una matriz con ceros
+        for m in range(len(trainData)): # recorre por columnas
             length[m] = trainData[m].shape[0]
         trainData = np.vstack(trainData)
         model.fit(trainData, lengths=length)  # get optimal parameters

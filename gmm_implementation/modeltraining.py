@@ -17,8 +17,8 @@ source   = "development_set/"
 # dest = "speaker_models/" # carpetas de modelos
 # train_file = "development_set_enroll.txt"  # archivo de la lista de entrenamiento files.vaw
 
-dest = "/home/wilderd/Documents/SR/Comparation_Study_SR/Speakers_models/"
-train_file = "/home/wilderd/Documents/SR/Comparation_Study_SR/development_set_enroll.txt"
+dest = "/home/wilderd/Documents/SR/Comparation_Study_SR/gmm_implementation/Speakers_models/"
+train_file = "/home/wilderd/Documents/SR/Comparation_Study_SR/gmm_implementation/development_set_enroll.txt"
 file_paths = open(train_file,'r')
 
 count = 1
@@ -33,6 +33,7 @@ for path in file_paths:
 
     # Extrae 40 dimensiones de MFCC & delta MFCC features
     vector   = extract_features(audio,sample_rate)
+    print("vector: ",vector)
 
     if features.size == 0:
         features = vector
