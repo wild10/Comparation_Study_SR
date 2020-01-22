@@ -3,7 +3,7 @@ from sklearn import preprocessing
 import python_speech_features as mfcc
 
 def calculate_delta(array):
-    """Calculate and returns the delta of given feature vector matrix"""
+    """Calcula y devuelve el delta de la matriz de vectores de características dada"""
 
     rows,cols = array.shape
     deltas = np.zeros((rows,20))
@@ -19,18 +19,18 @@ def calculate_delta(array):
             if i+j > rows-1:
                 second = rows-1
             else:
-                second = i+j 
+                second = i+j
             index.append((second,first))
             j+=1
         deltas[i] = ( array[index[0][0]]-array[index[0][1]] + (2 * (array[index[1][0]]-array[index[1][1]])) ) / 10
     return deltas
 
 def extract_features(audio,rate):
-    """extract 20 dim mfcc features from an audio, performs CMS and combines 
-    delta to make it 40 dim feature vector"""    
-    
-    mfcc_feature = mfcc.mfcc(audio,rate, 0.025, 0.01,20,nfft = 1200, appendEnergy = True)    
+    """extrae 20 dimensiones demfcc para 1 audio, se hace CMS y combina
+    con energias delta para tener 40 dimensiones"""    
+
+    mfcc_feature = mfcc.mfcc(audio,rate, 0.025, 0.01,20,nfft = 1200, appendEnergy = True)
     mfcc_feature = preprocessing.scale(mfcc_feature)
     delta = calculate_delta(mfcc_feature)
-    combined = np.hstack((mfcc_feature,delta)) 
+    combined = np.hstack((mfcc_feature,delta))
     return combined

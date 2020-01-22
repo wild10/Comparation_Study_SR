@@ -55,7 +55,7 @@ def buildDataSet(folder):
     return dataset
 
 def train_svm(dataset_features):
-    #model = svm.LinearSVC()
+    #
     model = svm.SVC(kernel = 'rbf', class_weight = "balanced", gamma="auto")
     speaker_names = dataset_features.keys()
     # generate speaker_ids from speaker_names
@@ -100,7 +100,7 @@ def main():
     cont_score = 0
     for label in test_data.keys():
         feature = test_data[label]
-        #print("feature: ",feature)
+        print("feature: ",feature)
         prediction = modelo_svm.predict(feature)
         print("prediccion: ",prediction)
 
