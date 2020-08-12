@@ -49,7 +49,9 @@ python test_model.py
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+we use python 2, and python 3 in orderd to efectively use the features extraction lybrary and because the poweful
+based of the version, all those compilation are in the top source code of the each file. and we follow the special 
+setting of the hmm provided by [hmm] (https://github.com/wblgers/hmm_speech_recognition_demo/blob/master/demo.py).
 
 ## Authors
 
