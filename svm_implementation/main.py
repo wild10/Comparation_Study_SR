@@ -1,6 +1,6 @@
 '''
 Speaker recoginiton using SVM
-implemented december 2019 by
+implemented in 2018 by
 errol.mamani@ucsp.edu.pe
 all right reserved.
 '''
